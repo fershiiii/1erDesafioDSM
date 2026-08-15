@@ -198,7 +198,8 @@
             app:icon="@android:drawable/ic_menu_revert"
             app:iconTint="#FFFFFF"
             app:iconGravity="textStart"
-            app:iconPadding="12dp" />
+            app:iconPadding="12dp"
+            android:layout_marginTop="@dimen/margin_medium" />
 
     </LinearLayout>
 </ScrollView>

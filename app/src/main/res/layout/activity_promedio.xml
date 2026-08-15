@@ -202,5 +202,24 @@
                 android:gravity="center" />
         </com.google.android.material.card.MaterialCardView>
 
+        <!-- Botón Regresar al Menú -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnRegresarMenu"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:text="Regresar al Menú"
+            android:textSize="15sp"
+            android:textAllCaps="false"
+            android:textColor="#FFFFFF"
+            app:strokeColor="#FFFFFF"
+            app:strokeWidth="2dp"
+            app:cornerRadius="12dp"
+            app:icon="@android:drawable/ic_menu_revert"
+            app:iconTint="#FFFFFF"
+            app:iconGravity="textStart"
+            app:iconPadding="12dp"
+            android:layout_marginTop="@dimen/margin_medium" />
+
     </LinearLayout>
 </ScrollView>
