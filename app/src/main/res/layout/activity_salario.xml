@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/bg_gradient"
     android:padding="@dimen/padding_medium">
 
     <LinearLayout
@@ -9,61 +11,141 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
+        <!-- Título -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/titulo_salario"
-            android:textSize="@dimen/text_title_size"
+            android:textSize="24sp"
             android:textStyle="bold"
+            android:textColor="#FFFFFF"
+            android:layout_gravity="center_horizontal"
             android:layout_marginBottom="@dimen/margin_medium" />
 
-        <EditText
-            android:id="@+id/txtNombreEmp"
+        <!-- Nombre del Empleado -->
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/hint_nombre_empleado"
-            android:inputType="textPersonName"
-            android:layout_marginBottom="@dimen/margin_small" />
+            android:textColorHint="#E2E8F0"
+            app:boxBackgroundColor="#1EFFFFFF"
+            app:boxCornerRadiusTopStart="12dp"
+            app:boxCornerRadiusTopEnd="12dp"
+            app:boxCornerRadiusBottomStart="12dp"
+            app:boxCornerRadiusBottomEnd="12dp"
+            app:boxStrokeColor="#FFFFFF"
+            app:hintTextColor="#FFFFFF"
+            android:layout_marginBottom="@dimen/margin_small">
 
-        <EditText
-            android:id="@+id/txtSalarioBase"
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/txtNombreEmp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:textColor="#FFFFFF" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Salario Base -->
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/hint_salario_base"
-            android:inputType="numberDecimal"
-            android:layout_marginBottom="@dimen/margin_medium" />
+            android:textColorHint="#E2E8F0"
+            app:boxBackgroundColor="#1EFFFFFF"
+            app:boxCornerRadiusTopStart="12dp"
+            app:boxCornerRadiusTopEnd="12dp"
+            app:boxCornerRadiusBottomStart="12dp"
+            app:boxCornerRadiusBottomEnd="12dp"
+            app:boxStrokeColor="#FFFFFF"
+            app:hintTextColor="#FFFFFF"
+            android:layout_marginBottom="@dimen/margin_medium">
 
-        <Button
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/txtSalarioBase"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="numberDecimal"
+                android:textColor="#FFFFFF" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Botón Calcular -->
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/btnCalcularSalario"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="56dp"
             android:text="@string/btn_calcular"
+            android:textSize="15sp"
+            android:textAllCaps="false"
+            android:textColor="#1E3A8A"
+            app:backgroundTint="#FFFFFF"
+            app:iconTint="#1E3A8A"
+            app:cornerRadius="12dp"
+            app:icon="@android:drawable/ic_menu_agenda"
+            app:iconGravity="textStart"
+            app:iconPadding="12dp"
             android:layout_marginBottom="@dimen/margin_medium" />
 
-        <TextView
-            android:id="@+id/txtSalarioBrutoResultado"
+        <!-- Tarjeta de Resultados -->
+        <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="@dimen/text_body_size"
-            android:textColor="@color/salario_bruto"
-            android:textStyle="bold"
-            android:layout_marginBottom="@dimen/margin_small" />
+            app:cardCornerRadius="16dp"
+            app:cardElevation="4dp"
+            app:cardBackgroundColor="#FFFFFF"
+            android:layout_marginBottom="@dimen/margin_medium">
 
-        <TextView
-            android:id="@+id/txtDescuentosResultado"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="@dimen/text_body_size"
-            android:textColor="@color/descuento"
-            android:layout_marginBottom="@dimen/margin_small" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="@dimen/padding_medium">
 
-        <TextView
-            android:id="@+id/txtSalarioNetoResultado"
+                <TextView
+                    android:id="@+id/txtSalarioBrutoResultado"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/text_body_size"
+                    android:textColor="@color/salario_bruto"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="@dimen/margin_small" />
+
+                <TextView
+                    android:id="@+id/txtDescuentosResultado"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/text_body_size"
+                    android:textColor="@color/descuento"
+                    android:layout_marginBottom="@dimen/margin_small" />
+
+                <TextView
+                    android:id="@+id/txtSalarioNetoResultado"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/text_body_size"
+                    android:textColor="@color/salario_neto"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Botón Regresar al Menú -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnRegresarMenu"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="@dimen/text_body_size"
-            android:textColor="@color/salario_neto"
-            android:textStyle="bold" />
+            android:layout_height="56dp"
+            android:text="Regresar al Menú"
+            android:textSize="15sp"
+            android:textAllCaps="false"
+            android:textColor="#FFFFFF"
+            app:strokeColor="#FFFFFF"
+            app:strokeWidth="2dp"
+            app:cornerRadius="12dp"
+            app:icon="@android:drawable/ic_menu_revert"
+            app:iconTint="#FFFFFF"
+            app:iconGravity="textStart"
+            app:iconPadding="12dp" />
 
     </LinearLayout>
 </ScrollView>
