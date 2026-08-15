@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/bg_gradient"
     android:padding="@dimen/padding_medium">
 
     <LinearLayout
@@ -9,76 +11,196 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
+        <!-- Título principal -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/titulo_promedio"
-            android:textSize="@dimen/text_title_size"
+            android:textSize="24sp"
             android:textStyle="bold"
+            android:textColor="#FFFFFF"
+            android:layout_gravity="center_horizontal"
             android:layout_marginBottom="@dimen/margin_medium" />
 
-        <EditText
-            android:id="@+id/etNombreEstudiante"
+        <!-- Nombre del Estudiante -->
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/hint_nombre_estudiante"
-            android:inputType="textPersonName"
-            android:layout_marginBottom="@dimen/margin_small" />
+            android:textColorHint="#E2E8F0"
+            app:boxBackgroundColor="#1EFFFFFF"
+            app:boxCornerRadiusTopStart="12dp"
+            app:boxCornerRadiusTopEnd="12dp"
+            app:boxCornerRadiusBottomStart="12dp"
+            app:boxCornerRadiusBottomEnd="12dp"
+            app:boxStrokeColor="#FFFFFF"
+            app:hintTextColor="#FFFFFF"
+            android:layout_marginBottom="@dimen/margin_small">
 
-        <EditText
-            android:id="@+id/etNota1"
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etNombreEstudiante"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:textColor="#FFFFFF" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Nota 1 -->
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/hint_nota1"
-            android:inputType="numberDecimal"
-            android:layout_marginBottom="@dimen/margin_small" />
+            android:textColorHint="#E2E8F0"
+            app:boxBackgroundColor="#1EFFFFFF"
+            app:boxCornerRadiusTopStart="12dp"
+            app:boxCornerRadiusTopEnd="12dp"
+            app:boxCornerRadiusBottomStart="12dp"
+            app:boxCornerRadiusBottomEnd="12dp"
+            app:boxStrokeColor="#FFFFFF"
+            app:hintTextColor="#FFFFFF"
+            android:layout_marginBottom="@dimen/margin_small">
 
-        <EditText
-            android:id="@+id/etNota2"
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etNota1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="numberDecimal"
+                android:textColor="#FFFFFF" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Nota 2 -->
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/hint_nota2"
-            android:inputType="numberDecimal"
-            android:layout_marginBottom="@dimen/margin_small" />
+            android:textColorHint="#E2E8F0"
+            app:boxBackgroundColor="#1EFFFFFF"
+            app:boxCornerRadiusTopStart="12dp"
+            app:boxCornerRadiusTopEnd="12dp"
+            app:boxCornerRadiusBottomStart="12dp"
+            app:boxCornerRadiusBottomEnd="12dp"
+            app:boxStrokeColor="#FFFFFF"
+            app:hintTextColor="#FFFFFF"
+            android:layout_marginBottom="@dimen/margin_small">
 
-        <EditText
-            android:id="@+id/etNota3"
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etNota2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="numberDecimal"
+                android:textColor="#FFFFFF" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Nota 3 -->
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/hint_nota3"
-            android:inputType="numberDecimal"
-            android:layout_marginBottom="@dimen/margin_small" />
+            android:textColorHint="#E2E8F0"
+            app:boxBackgroundColor="#1EFFFFFF"
+            app:boxCornerRadiusTopStart="12dp"
+            app:boxCornerRadiusTopEnd="12dp"
+            app:boxCornerRadiusBottomStart="12dp"
+            app:boxCornerRadiusBottomEnd="12dp"
+            app:boxStrokeColor="#FFFFFF"
+            app:hintTextColor="#FFFFFF"
+            android:layout_marginBottom="@dimen/margin_small">
 
-        <EditText
-            android:id="@+id/etNota4"
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etNota3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="numberDecimal"
+                android:textColor="#FFFFFF" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Nota 4 -->
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/hint_nota4"
-            android:inputType="numberDecimal"
-            android:layout_marginBottom="@dimen/margin_small" />
+            android:textColorHint="#E2E8F0"
+            app:boxBackgroundColor="#1EFFFFFF"
+            app:boxCornerRadiusTopStart="12dp"
+            app:boxCornerRadiusTopEnd="12dp"
+            app:boxCornerRadiusBottomStart="12dp"
+            app:boxCornerRadiusBottomEnd="12dp"
+            app:boxStrokeColor="#FFFFFF"
+            app:hintTextColor="#FFFFFF"
+            android:layout_marginBottom="@dimen/margin_small">
 
-        <EditText
-            android:id="@+id/etNota5"
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etNota4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="numberDecimal"
+                android:textColor="#FFFFFF" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Nota 5 -->
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/hint_nota5"
-            android:inputType="numberDecimal"
-            android:layout_marginBottom="@dimen/margin_medium" />
+            android:textColorHint="#E2E8F0"
+            app:boxBackgroundColor="#1EFFFFFF"
+            app:boxCornerRadiusTopStart="12dp"
+            app:boxCornerRadiusTopEnd="12dp"
+            app:boxCornerRadiusBottomStart="12dp"
+            app:boxCornerRadiusBottomEnd="12dp"
+            app:boxStrokeColor="#FFFFFF"
+            app:hintTextColor="#FFFFFF"
+            android:layout_marginBottom="@dimen/margin_medium">
 
-        <Button
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etNota5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="numberDecimal"
+                android:textColor="#FFFFFF" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Botón Calcular -->
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/btnCalcularPromedio"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="56dp"
             android:text="@string/btn_calcular"
+            android:textSize="15sp"
+            android:textAllCaps="false"
+            android:textColor="#1E3A8A"
+            app:backgroundTint="#FFFFFF"
+            app:iconTint="#1E3A8A"
+            app:cornerRadius="12dp"
+            app:icon="@android:drawable/ic_menu_edit"
+            app:iconGravity="textStart"
+            app:iconPadding="12dp"
             android:layout_marginBottom="@dimen/margin_medium" />
 
-        <TextView
-            android:id="@+id/tvResultado"
+        <!-- Tarjeta del Resultado -->
+        <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="@dimen/text_body_size"
-            android:textStyle="bold"
-            android:gravity="center" />
+            app:cardCornerRadius="16dp"
+            app:cardElevation="4dp"
+            app:cardBackgroundColor="#FFFFFF">
+
+            <TextView
+                android:id="@+id/tvResultado"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/text_body_size"
+                android:textColor="#0F172A"
+                android:textStyle="bold"
+                android:padding="@dimen/padding_medium"
+                android:gravity="center" />
+        </com.google.android.material.card.MaterialCardView>
 
     </LinearLayout>
 </ScrollView>
