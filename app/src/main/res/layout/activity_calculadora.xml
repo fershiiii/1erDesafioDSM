@@ -1,65 +1,204 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
+    android:background="@drawable/bg_gradient"
     android:padding="@dimen/padding_medium">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/titulo_calculadora"
-        android:textSize="@dimen/text_title_size"
-        android:textStyle="bold"
-        android:layout_marginBottom="@dimen/margin_medium" />
-
-    <EditText
-        android:id="@+id/txtNum1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="@string/hint_num1"
-        android:inputType="numberDecimal|numberSigned"
-        android:layout_marginBottom="@dimen/margin_small" />
-
-    <EditText
-        android:id="@+id/txtNum2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="@string/hint_num2"
-        android:inputType="numberDecimal|numberSigned"
-        android:layout_marginBottom="@dimen/margin_medium" />
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="center"
-        android:layout_marginBottom="@dimen/margin_small">
+        android:orientation="vertical">
 
-        <Button android:id="@+id/btnSuma" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="+" />
-        <Button android:id="@+id/btnResta" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="-" />
-        <Button android:id="@+id/btnMulti" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="*" />
-        <Button android:id="@+id/btnDiv" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="/" />
+        <!-- Título -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/titulo_calculadora"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:textColor="#FFFFFF"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="@dimen/margin_medium" />
+
+        <!-- Número 1 -->
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/hint_num1"
+            android:textColorHint="#E2E8F0"
+            app:boxBackgroundColor="#1EFFFFFF"
+            app:boxCornerRadiusTopStart="12dp"
+            app:boxCornerRadiusTopEnd="12dp"
+            app:boxCornerRadiusBottomStart="12dp"
+            app:boxCornerRadiusBottomEnd="12dp"
+            app:boxStrokeColor="#FFFFFF"
+            app:hintTextColor="#FFFFFF"
+            android:layout_marginBottom="@dimen/margin_small">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/txtNum1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="numberDecimal|numberSigned"
+                android:textColor="#FFFFFF" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Número 2 -->
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/hint_num2"
+            android:textColorHint="#E2E8F0"
+            app:boxBackgroundColor="#1EFFFFFF"
+            app:boxCornerRadiusTopStart="12dp"
+            app:boxCornerRadiusTopEnd="12dp"
+            app:boxCornerRadiusBottomStart="12dp"
+            app:boxCornerRadiusBottomEnd="12dp"
+            app:boxStrokeColor="#FFFFFF"
+            app:hintTextColor="#FFFFFF"
+            android:layout_marginBottom="@dimen/margin_medium">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/txtNum2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="numberDecimal|numberSigned"
+                android:textColor="#FFFFFF" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Fila de operaciones básicas (+, -, *, /) -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="8dp">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnSuma"
+                android:layout_width="0dp"
+                android:layout_height="52dp"
+                android:layout_weight="1"
+                android:layout_marginEnd="4dp"
+                android:text="+"
+                android:textSize="18sp"
+                android:textColor="#1E3A8A"
+                app:backgroundTint="#FFFFFF"
+                app:cornerRadius="12dp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnResta"
+                android:layout_width="0dp"
+                android:layout_height="52dp"
+                android:layout_weight="1"
+                android:layout_marginStart="4dp"
+                android:layout_marginEnd="4dp"
+                android:text="-"
+                android:textSize="18sp"
+                android:textColor="#1E3A8A"
+                app:backgroundTint="#FFFFFF"
+                app:cornerRadius="12dp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnMulti"
+                android:layout_width="0dp"
+                android:layout_height="52dp"
+                android:layout_weight="1"
+                android:layout_marginStart="4dp"
+                android:layout_marginEnd="4dp"
+                android:text="*"
+                android:textSize="18sp"
+                android:textColor="#1E3A8A"
+                app:backgroundTint="#FFFFFF"
+                app:cornerRadius="12dp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnDiv"
+                android:layout_width="0dp"
+                android:layout_height="52dp"
+                android:layout_weight="1"
+                android:layout_marginStart="4dp"
+                android:text="/"
+                android:textSize="18sp"
+                android:textColor="#1E3A8A"
+                app:backgroundTint="#FFFFFF"
+                app:cornerRadius="12dp" />
+        </LinearLayout>
+
+        <!-- Fila de operaciones avanzadas (Exponentes y Raíz) -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="@dimen/margin_medium">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnExpo"
+                android:layout_width="0dp"
+                android:layout_height="52dp"
+                android:layout_weight="1"
+                android:layout_marginEnd="4dp"
+                android:text="X^Y"
+                android:textSize="16sp"
+                android:textAllCaps="false"
+                android:textColor="#1E3A8A"
+                app:backgroundTint="#FFFFFF"
+                app:cornerRadius="12dp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnRaiz"
+                android:layout_width="0dp"
+                android:layout_height="52dp"
+                android:layout_weight="1"
+                android:layout_marginStart="4dp"
+                android:text="√X"
+                android:textSize="16sp"
+                android:textAllCaps="false"
+                android:textColor="#1E3A8A"
+                app:backgroundTint="#FFFFFF"
+                app:cornerRadius="12dp" />
+        </LinearLayout>
+
+        <!-- Tarjeta de Resultado -->
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="4dp"
+            app:cardBackgroundColor="#FFFFFF"
+            android:layout_marginBottom="@dimen/margin_medium">
+
+            <TextView
+                android:id="@+id/txtResultadoCalc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                android:textColor="#0F172A"
+                android:textStyle="bold"
+                android:padding="@dimen/padding_medium"
+                android:gravity="center" />
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Botón Regresar al Menú -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnRegresarMenu"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:text="Regresar al Menú"
+            android:textSize="15sp"
+            android:textAllCaps="false"
+            android:textColor="#FFFFFF"
+            app:strokeColor="#FFFFFF"
+            app:strokeWidth="2dp"
+            app:cornerRadius="12dp"
+            app:icon="@android:drawable/ic_menu_revert"
+            app:iconTint="#FFFFFF"
+            app:iconGravity="textStart"
+            app:iconPadding="12dp" />
+
     </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="center"
-        android:layout_marginBottom="@dimen/margin_medium">
-
-        <Button android:id="@+id/btnExpo" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="X^Y" />
-        <Button android:id="@+id/btnRaiz" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="√X" />
-    </LinearLayout>
-
-    <TextView
-        android:id="@+id/txtResultadoCalc"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="@dimen/text_title_size"
-        android:textStyle="bold"
-        android:gravity="center"
-        android:layout_marginBottom="@dimen/margin_medium" />
-
-</LinearLayout>
+</ScrollView>
