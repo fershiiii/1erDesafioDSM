@@ -2,4 +2,9 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <!-- Colores solicitados para el salario -->
+    <color name="salario_bruto">#1E88E5</color> <!-- Azul -->
+    <color name="salario_neto">#2E7D32</color>  <!-- Verde -->
+    <color name="descuento">#C62828</color>     <!-- Rojo -->
 </resources>
