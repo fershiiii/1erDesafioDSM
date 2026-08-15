@@ -1,105 +1,88 @@
 package com.example.a1erdesafiodsm
 
 import android.content.Context
+import android.os.Build
 import android.os.Bundle
+import android.os.Vibrator
+import android.os.VibratorManager
 import android.widget.Button
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.textfield.TextInputEditText
-import kotlin.math.pow
-import kotlin.math.sqrt
+import java.text.DecimalFormat
 
-class CalculadoraActivity : AppCompatActivity() {
+class SalarioActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_calculadora)
+        setContentView(R.layout.activity_salario)
 
-        val txtN1 = findViewById<TextInputEditText>(R.id.txtNum1)
-        val txtN2 = findViewById<TextInputEditText>(R.id.txtNum2)
-        val txtRes = findViewById<TextView>(R.id.txtResultadoCalc)
-
-        val btnSuma = findViewById<Button>(R.id.btnSuma)
-        val btnResta = findViewById<Button>(R.id.btnResta)
-        val btnMulti = findViewById<Button>(R.id.btnMulti)
-        val btnDiv = findViewById<Button>(R.id.btnDiv)
-        val btnExpo = findViewById<Button>(R.id.btnExpo)
-        val btnRaiz = findViewById<Button>(R.id.btnRaiz)
+        val txtNombre = findViewById<TextInputEditText>(R.id.txtNombreEmp)
+        val txtSalario = findViewById<TextInputEditText>(R.id.txtSalarioBase)
+        val btnCalcular = findViewById<Button>(R.id.btnCalcularSalario)
+        val txtBruto = findViewById<TextView>(R.id.txtSalarioBrutoResultado)
+        val txtDescuentos = findViewById<TextView>(R.id.txtDescuentosResultado)
+        val txtNeto = findViewById<TextView>(R.id.txtSalarioNetoResultado)
         val btnRegresar = findViewById<Button>(R.id.btnRegresarMenu)
 
         btnRegresar.setOnClickListener { finish() }
 
-        btnSuma.setOnClickListener {
-            val n1 = txtN1.text.toString().toDoubleOrNull()
-            val n2 = txtN2.text.toString().toDoubleOrNull()
-            if (n1 != null && n2 != null) {
-                val total = n1 + n2
-                txtRes.text = "Resultado: $total"
-                guardarHistorial("$n1 + $n2 = $total")
-            } else { txtN1.error = getString(R.string.error_campo_vacio) }
-        }
+        btnCalcular.setOnClickListener {
+            val nom = txtNombre.text.toString().trim()
+            val salTexto = txtSalario.text.toString().trim()
 
-        btnResta.setOnClickListener {
-            val n1 = txtN1.text.toString().toDoubleOrNull()
-            val n2 = txtN2.text.toString().toDoubleOrNull()
-            if (n1 != null && n2 != null) {
-                val total = n1 - n2
-                txtRes.text = "Resultado: $total"
-                guardarHistorial("$n1 - $n2 = $total")
-            } else { txtN1.error = getString(R.string.error_campo_vacio) }
-        }
+            if (nom.isEmpty()) {
+                txtNombre.error = getString(R.string.error_campo_vacio)
+                activarVibracion()
+                return@setOnClickListener
+            }
 
-        btnMulti.setOnClickListener {
-            val n1 = txtN1.text.toString().toDoubleOrNull()
-            val n2 = txtN2.text.toString().toDoubleOrNull()
-            if (n1 != null && n2 != null) {
-                val total = n1 * n2
-                txtRes.text = "Resultado: $total"
-                guardarHistorial("$n1 * $n2 = $total")
-            } else { txtN1.error = getString(R.string.error_campo_vacio) }
-        }
+            if (salTexto.isEmpty()) {
+                txtSalario.error = getString(R.string.error_campo_vacio)
+                activarVibracion()
+                return@setOnClickListener
+            }
 
-        btnDiv.setOnClickListener {
-            val n1 = txtN1.text.toString().toDoubleOrNull()
-            val n2 = txtN2.text.toString().toDoubleOrNull()
-            if (n1 != null && n2 != null) {
-                if (n2 == 0.0) {
-                    txtN2.error = getString(R.string.error_div_cero)
-                } else {
-                    val total = n1 / n2
-                    txtRes.text = "Resultado: $total"
-                    guardarHistorial("$n1 / $n2 = $total")
-                }
-            } else { txtN1.error = getString(R.string.error_campo_vacio) }
-        }
+            val sueldoBase = salTexto.toDoubleOrNull()
 
-        btnExpo.setOnClickListener {
-            val n1 = txtN1.text.toString().toDoubleOrNull()
-            val n2 = txtN2.text.toString().toDoubleOrNull()
-            if (n1 != null && n2 != null) {
-                val total = n1.pow(n2)
-                txtRes.text = "Resultado: $total"
-                guardarHistorial("$n1 ^ $n2 = $total")
-            } else { txtN1.error = getString(R.string.error_campo_vacio) }
-        }
+            if (sueldoBase == null || sueldoBase <= 0) {
+                txtSalario.error = getString(R.string.error_salario_invalida)
+                activarVibracion()
+            } else {
+                val afp = sueldoBase * 0.0725
+                val isss = if (sueldoBase > 1000) 30.0 else sueldoBase * 0.03
+                val gravable = sueldoBase - afp - isss
+                val renta = calcularRenta(gravable)
 
-        btnRaiz.setOnClickListener {
-            val n1 = txtN1.text.toString().toDoubleOrNull()
-            if (n1 != null) {
-                val total = sqrt(n1)
-                txtRes.text = "Resultado: $total"
-                guardarHistorial("√$n1 = $total")
-            } else { txtN1.error = getString(R.string.error_campo_vacio) }
+                val totalDescuento = afp + isss + renta
+                val sueldoNeto = sueldoBase - totalDescuento
+
+                val df = DecimalFormat("$#,##0.00")
+
+                txtBruto.text = "Empleado: $nom\nSalario Bruto: ${df.format(sueldoBase)}"
+                txtDescuentos.text = "Descuentos:\n • ISSS: ${df.format(isss)}\n • AFP: ${df.format(afp)}\n • Renta: ${df.format(renta)}\nTotal Descuentos: ${df.format(totalDescuento)}"
+                txtNeto.text = "Salario Neto A Pagar: ${df.format(sueldoNeto)}"
+            }
         }
     }
 
-    private fun guardarHistorial(operacion: String) {
-        try {
-            openFileOutput("historial_calculadora.txt", Context.MODE_APPEND).use {
-                it.write("$operacion\n".toByteArray())
-            }
-        } catch (e: Exception) {
-            e.printStackTrace()
+    private fun calcularRenta(monto: Double): Double {
+        return when {
+            monto <= 472.00 -> 0.0
+            monto <= 895.24 -> ((monto - 472.00) * 0.10) + 17.67
+            monto <= 2038.10 -> ((monto - 895.24) * 0.20) + 60.00
+            else -> ((monto - 2038.10) * 0.30) + 288.57
+        }
+    }
+
+    private fun activarVibracion() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+            val manager = getSystemService(Context.VIBRATOR_MANAGER_SERVICE) as VibratorManager
+            manager.defaultVibrator.vibrate(android.os.VibrationEffect.createOneShot(400, android.os.VibrationEffect.DEFAULT_AMPLITUDE))
+        } else {
+            @Suppress("DEPRECATION")
+            val v = getSystemService(Context.VIBRATOR_SERVICE) as Vibrator
+            v.vibrate(400)
         }
     }
 }
