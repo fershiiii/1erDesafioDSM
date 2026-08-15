@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="@dimen/padding_medium">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/titulo_salario"
+            android:textSize="@dimen/text_title_size"
+            android:textStyle="bold"
+            android:layout_marginBottom="@dimen/margin_medium" />
+
+        <EditText
+            android:id="@+id/txtNombreEmp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/hint_nombre_empleado"
+            android:inputType="textPersonName"
+            android:layout_marginBottom="@dimen/margin_small" />
+
+        <EditText
+            android:id="@+id/txtSalarioBase"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/hint_salario_base"
+            android:inputType="numberDecimal"
+            android:layout_marginBottom="@dimen/margin_medium" />
+
+        <Button
+            android:id="@+id/btnCalcularSalario"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/btn_calcular"
+            android:layout_marginBottom="@dimen/margin_medium" />
+
+        <TextView
+            android:id="@+id/txtSalarioBrutoResultado"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/text_body_size"
+            android:textColor="@color/salario_bruto"
+            android:textStyle="bold"
+            android:layout_marginBottom="@dimen/margin_small" />
+
+        <TextView
+            android:id="@+id/txtDescuentosResultado"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/text_body_size"
+            android:textColor="@color/descuento"
+            android:layout_marginBottom="@dimen/margin_small" />
+
+        <TextView
+            android:id="@+id/txtSalarioNetoResultado"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/text_body_size"
+            android:textColor="@color/salario_neto"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+</ScrollView>
