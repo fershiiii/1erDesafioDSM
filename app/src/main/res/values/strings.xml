@@ -1,3 +1,34 @@
 <resources>
-    <string name="app_name">1erDesafioDSM</string>
+    <string name="app_name">1er Desafio DSM</string>
+
+    <!-- Menú Principal -->
+    <string name="titulo_menu">Primer Desafío Práctico</string>
+    <string name="btn_ejercicio1">Ejercicio 1: Promedio</string>
+    <string name="btn_ejercicio2">Ejercicio 2: Salario</string>
+    <string name="btn_ejercicio3">Ejercicio 3: Calculadora</string>
+
+    <!-- Ejercicio 1: Promedio -->
+    <string name="titulo_promedio">Promedio del Estudiante</string>
+    <string name="hint_nombre_estudiante">Nombre del estudiante</string>
+    <string name="hint_nota1">Nota 1 (0-10)</string>
+    <string name="hint_nota2">Nota 2 (0-10)</string>
+    <string name="hint_nota3">Nota 3 (0-10)</string>
+    <string name="hint_nota4">Nota 4 (0-10)</string>
+    <string name="hint_nota5">Nota 5 (0-10)</string>
+    <string name="btn_calcular">Calcular</string>
+    <string name="error_campo_vacio">Este campo no puede estar vacío</string>
+    <string name="error_nota_invalida">La nota debe estar entre 0 y 10</string>
+
+    <!-- Ejercicio 2: Salario -->
+    <string name="titulo_salario">Descuentos al Salario</string>
+    <string name="hint_nombre_empleado">Nombre del empleado</string>
+    <string name="hint_salario_base">Salario base ($)</string>
+    <string name="error_salario_invalida">Ingrese un salario válido mayor a 0</string>
+
+    <!-- Ejercicio 3: Calculadora -->
+    <string name="titulo_calculadora">Calculadora Básica</string>
+    <string name="hint_num1">Número 1 / Base / Número</string>
+    <string name="hint_num2">Número 2 / Exponente</string>
+    <string name="error_div_cero">No se puede dividir entre cero</string>
+    <string name="btn_ver_historial">Ver Historial</string>
 </resources>
