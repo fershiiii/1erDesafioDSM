@@ -4,6 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/bg_gradient"
+    android:fitsSystemWindows="true"
     android:padding="@dimen/padding_medium">
 
     <LinearLayout
@@ -20,6 +21,7 @@
             android:textStyle="bold"
             android:textColor="#FFFFFF"
             android:layout_gravity="center_horizontal"
+            android:layout_marginTop="16dp"
             android:layout_marginBottom="@dimen/margin_medium" />
 
         <!-- Número 1 -->
